@@ -1,4 +1,4 @@
-## Overview	
+## Overview
 
 This is the code-release for the TuRBO algorithm from ***Scalable Global Optimization via Local Bayesian Optimization*** appearing in NeurIPS 2019. This is an implementation for the noise-free case and may not work well if observations are noisy as the center of the trust region should be chosen based on the posterior mean in this case.
 
@@ -9,7 +9,7 @@ Note that TuRBO is a **minimization** algorithm, so please make sure you reformu
 ### Robot pushing
 The original code for the robot pushing problem is available at https://github.com/zi-w/Ensemble-Bayesian-Optimization. We have made the following changes to the code when running our experiments:
 
-1. We turned off the visualization, which speeds up the function evaluations. 
+1. We turned off the visualization, which speeds up the function evaluations.
 2. We replaced all instances of ```np.random.normal(0, 0.01)``` by ```np.random.normal(0, 1e-6)``` in ```push_utils.py```. This makes the function close to noise-free. Another option is to average over several evaluations using the original code
 3. We flipped the sign of the objective function to turn this into a minimization problem.
 
@@ -50,7 +50,7 @@ def heuristic_Controller(s, w):
     return a
 ```
 
-We use the constraints 0 <= w_i <= 2 for all parameters.
+We use the constraints 0 <= w_i <= 2 for all parameters. We use ```INITIAL_RANDOM = 1500.0``` to make the problem more challenging.
 
 For more information about the logic behind this controller and how to integrate it with ```gym```, take a look at the original heuristic controller source code: https://github.com/openai/gym/blob/master/gym/envs/box2d/lunar_lander.py#L364
 
@@ -70,7 +70,7 @@ hubble:          [52.5, 100]
 temp_cmb:        [2.7, 2.8]
 hefrac:          [0.2, 0.3]
 mneu:            [2.9, 3.09]
-scalar_amp:      [1.5e-9, 2.6e-8] 
+scalar_amp:      [1.5e-9, 2.6e-8]
 scalar_spec_ind: [0.72, 5]
 rf_fudge:        [0, 100]
 rf_fudge_he:     [0, 100]
