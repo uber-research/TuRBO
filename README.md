@@ -81,15 +81,15 @@ Check the examples folder for two examples on how to use Turbo-1 and Turbo-n.
 
 ## Citing us
 
-A pre-print of our paper is available at: https://arxiv.org/abs/1910.01739
+The final version of the paper is available at: http://papers.nips.cc/paper/8788-scalable-global-optimization-via-local-bayesian-optimization.
 
 ```
-@article{eriksson2019scalable,
-  title={Scalable Global Optimization via Local Bayesian Optimization},
-  author={Eriksson, David and Pearce, Michael and Gardner, Jacob R and Turner, Ryan and Poloczek, Matthias},
-  journal={arXiv preprint arXiv:1910.01739},
-  year={2019}
+@inproceedings{eriksson2019scalable,
+  title = {Scalable Global Optimization via Local {Bayesian} Optimization},
+  author = {Eriksson, David and Pearce, Michael and Gardner, Jacob and Turner, Ryan D and Poloczek, Matthias},
+  booktitle = {Advances in Neural Information Processing Systems},
+  pages = {5496--5507},
+  year = {2019},
+  url = {http://papers.nips.cc/paper/8788-scalable-global-optimization-via-local-bayesian-optimization.pdf},
 }
 ```
-
-The link and citation key will be updated when the camera-ready version of the paper is available.
