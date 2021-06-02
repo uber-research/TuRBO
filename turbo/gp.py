@@ -1,16 +1,4 @@
-###############################################################################
-# Copyright (c) 2019 Uber Technologies, Inc.                                  #
-#                                                                             #
-# Licensed under the Uber Non-Commercial License (the "License");             #
-# you may not use this file except in compliance with the License.            #
-# You may obtain a copy of the License at the root directory of this project. #
-#                                                                             #
-# See the License for the specific language governing permissions and         #
-# limitations under the License.                                              #
-###############################################################################
-
 import math
-
 import gpytorch
 import numpy as np
 import torch
@@ -22,13 +10,13 @@ from gpytorch.means import ConstantMean
 from gpytorch.mlls import ExactMarginalLogLikelihood
 from gpytorch.models import ExactGP
 
-
 # GP Model
 class GP(ExactGP):
     def __init__(self, train_x, train_y, likelihood, lengthscale_constraint, outputscale_constraint, ard_dims):
         super(GP, self).__init__(train_x, train_y, likelihood)
         self.ard_dims = ard_dims
         self.mean_module = ConstantMean()
+        # Matern-5/2 kernel as default
         base_kernel = MaternKernel(lengthscale_constraint=lengthscale_constraint, ard_num_dims=ard_dims, nu=2.5)
         self.covar_module = ScaleKernel(base_kernel, outputscale_constraint=outputscale_constraint)
 
@@ -64,7 +52,7 @@ def train_gp(train_x, train_y, use_ard, num_steps, hypers={}):
         ard_dims=ard_dims,
     ).to(device=train_x.device, dtype=train_x.dtype)
 
-    # Find optimal model hyperparameters
+    # Find optimal model hyperparameters via train()
     model.train()
     likelihood.train()
 
